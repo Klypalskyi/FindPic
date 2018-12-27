@@ -3,7 +3,11 @@
 */
 @import 'normalize';
 
+@import 'var';
+
 @import 'reset';
+
+@import 'wrapper';
 
 @import 'fonts';
 
@@ -12,4 +16,6 @@
 @import 'gallery';
 
 @import 'favorites';
+
+@import 'modal';
 
