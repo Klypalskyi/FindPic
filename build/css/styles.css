@@ -457,7 +457,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 882px;
+  width: 73.38%;
   margin: auto;
   margin-top: 28px;
 }
@@ -471,6 +471,7 @@ ul {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .img-list__imgs {
@@ -480,10 +481,6 @@ ul {
   margin-right: 15px;
   margin-bottom: 15px;
   background-color: #231f20;
-}
-
-.img-list__imgs:nth-child(4n) {
-  margin-right: 0px;
 }
 
 .imgs__item {
@@ -512,7 +509,7 @@ ul {
 .favorites-gallery {
   margin: 0;
   padding: 0;
-  width: 882px;
+  width: 73.38%;
   margin: auto;
   margin-top: 28px;
 }
@@ -527,6 +524,7 @@ ul {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .favorites-gallery__img-list .img-list__imgs {
@@ -536,10 +534,6 @@ ul {
   margin-right: 15px;
   margin-bottom: 15px;
   background-color: #231f20;
-}
-
-.favorites-gallery__img-list .img-list__imgs:nth-child(4n) {
-  margin-right: 0px;
 }
 
 .imgs__item {
@@ -644,13 +638,13 @@ ul {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    height: 28.625rem;
+    height: auto;
     width: 58.75%;
   }
 
   .modal__backdrop--window {
     background-color: #fff;
-    height: 30rem;
+    height: inherit;
   }
 
   .modal__backdrop--button {

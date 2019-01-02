@@ -4,13 +4,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 28.625rem;
+    height: auto;
     width: 58.75%;
   }
 
   .modal__backdrop--window {
     background-color: #fff;
-    height: 30rem;
+    height: inherit;
   }
 
   .modal__backdrop--button {

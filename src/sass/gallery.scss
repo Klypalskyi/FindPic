@@ -11,7 +11,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   // border: 1px solid red;
-  width: 882px;
+  width: 73.38%;
   margin: auto;
   margin-top: 28px;
 }
@@ -25,6 +25,7 @@
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .img-list__imgs {
@@ -34,10 +35,6 @@
   margin-right: 15px;
   margin-bottom: 15px;
   background-color: #231f20;
-}
-
-.img-list__imgs:nth-child(4n){
-  margin-right: 0px;
 }
 
 .imgs__item {
