@@ -445,21 +445,25 @@ ul {
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.gallery-wrapper {
-  margin: 0;
-  padding: 0;
+.gallery {
   display: flex;
+  align-content: flex-start;
+  justify-content: space-around;
   flex-wrap: wrap;
-  justify-content: space-between;
-  width: 73.38%;
+  max-width: 73.38%;
   margin: auto;
   margin-top: 28px;
+}
+
+.gallery__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.btn-hidden {
+  opacity: 0;
 }
 
 .gallery-wrapper__gallery {
@@ -632,19 +636,29 @@ ul {
     font-weight: 700;
   }
 
-  .modal__backdrop {
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(37, 45, 58, 0.7);
+  }
+
+  .modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    height: auto;
-    width: 58.75%;
-  }
-
-  .modal__backdrop--window {
-    background-color: #fff;
-    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 650px;
+    min-height: 380px;
+    padding: 50px 80px;
+    border-radius: 2px;
   }
 
   .modal__backdrop--button {
