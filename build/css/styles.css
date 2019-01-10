@@ -530,7 +530,7 @@ ul {
 }
 
 .fav-hidden {
-  opacity: 0;
+  display: none;
 }
 
 .favorites-gallery__img-list {

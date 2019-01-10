@@ -12,12 +12,14 @@ modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalNext.addEventListener('click', next);
 favorites.addEventListener('click', openModal);
+let getAttr;
 
 function openModal(e) {
     const target = e.target;
     console.log(target);
     choosePicture(target)
     modalSection.classList.remove('modal-hidden');
+    getAttr = target.getAttribute('src');
 }
 
 function hidd (e) {
