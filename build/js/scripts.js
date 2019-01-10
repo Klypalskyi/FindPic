@@ -99,6 +99,19 @@ function createImages(imgs) {
 
   return markup;
 } // .then(data => console.log(data))
+'use strict';
+
+var favBtn = document.querySelector('.header__nav');
+var favList = document.querySelector('.fav-hidden');
+var galleryList = document.querySelector('.gallery');
+favBtn.addEventListener('click', appGallery);
+
+function appGallery(event) {
+  favList.classList.remove('fav-hidden');
+  galleryList.classList.add('hide');
+}
+
+;
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -114,11 +127,13 @@ var modalClose = document.querySelector('.modal-close');
 var modalPrev = document.querySelector('.modal-prev');
 var modalNext = document.querySelector('.modal-next');
 var modalImg = document.querySelector('.modal-img');
+var favorites = document.querySelector('.favorites-gallery__img-list');
 console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalNext.addEventListener('click', next);
+favorites.addEventListener('click', openModal);
 
 function openModal(e) {
   var target = e.target;

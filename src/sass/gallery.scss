@@ -20,6 +20,10 @@
   opacity: 0;
 }
 
+.hide {
+  display: $hide;
+}
+
 .gallery-wrapper__gallery {
   margin: 0;
   padding: 0;

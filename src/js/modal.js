@@ -3,6 +3,7 @@ const modalClose = document.querySelector('.modal-close');
 const modalPrev = document.querySelector('.modal-prev');
 const modalNext = document.querySelector('.modal-next');
 const modalImg = document.querySelector('.modal-img');
+const favorites = document.querySelector('.favorites-gallery__img-list'); 
 console.log(modalImg.src);
 
 
@@ -10,6 +11,7 @@ gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalNext.addEventListener('click', next);
+favorites.addEventListener('click', openModal);
 
 function openModal(e) {
     const target = e.target;
