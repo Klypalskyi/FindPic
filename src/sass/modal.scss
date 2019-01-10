@@ -8,9 +8,9 @@
     background-color: rgba(37, 45, 58, 0.7);
   }
   
-  // .modal-hidden {
-  //   display: none;
-  // }
+  .modal-hidden {
+    display: none;
+  }
   
   .modal-content {
     position: absolute;
@@ -73,6 +73,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .modal-buttons {
+    cursor: pointer;
   }
 
   .bold {

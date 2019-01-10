@@ -480,6 +480,7 @@ ul {
 
 .img-list__imgs {
   display: block;
+  cursor: pointer;
   width: 209px;
   height: 122px;
   margin-right: 15px;
@@ -645,6 +646,10 @@ ul {
     background-color: rgba(37, 45, 58, 0.7);
   }
 
+  .modal-hidden {
+    display: none;
+  }
+
   .modal-content {
     position: absolute;
     top: 50%;
@@ -671,6 +676,10 @@ ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .modal-buttons {
+    cursor: pointer;
   }
 
   .bold {

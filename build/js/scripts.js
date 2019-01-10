@@ -51,9 +51,53 @@ function createImages(imgs) {
 } // .then(data => console.log(data))
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var modalSection = document.querySelector('.js-modal-backdrop');
+var modalClose = document.querySelector('.modal-close');
+var modalPrev = document.querySelector('.modal-prev');
+var modalNext = document.querySelector('.modal-next');
+var modalImg = document.querySelector('.modal-img');
+console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
+modalSection.addEventListener('click', hidd);
+modalClose.addEventListener('click', hidd);
+modalNext.addEventListener('click', next);
 
 function openModal(e) {
   var target = e.target;
   console.log(target);
+  choosePicture(target);
+  modalSection.classList.remove('modal-hidden');
+}
+
+function hidd(e) {
+  // console.log(e.target);
+  if (this !== e.target) return;
+  modalSection.classList.add('modal-hidden');
+}
+
+function choosePicture(target) {
+  if (target.classList.contains('img-list__imgs')) {
+    modalImg.src = target.firstElementChild.src;
+  } else if (target.classList.contains('imgs__item')) {
+    modalImg.src = target.src;
+  }
+}
+
+function next() {
+  var galleryArr = _toConsumableArray(gallery.children);
+
+  console.log(galleryArr);
+  console.log(modalImg.parentElement);
+
+  for (var i = 0; i < galleryArr.length; i++) {
+    console.log(i);
+  }
 }
