@@ -104,11 +104,22 @@ function createImages(imgs) {
 var favBtn = document.querySelector('.header__nav');
 var favList = document.querySelector('.fav-hidden');
 var galleryList = document.querySelector('.gallery');
+var addFav = document.querySelector('.modal-favorite');
+var imgContainer = document.querySelector('.first');
 favBtn.addEventListener('click', appGallery);
+addFav.addEventListener('click', addPic);
 
 function appGallery(event) {
   favList.classList.remove('fav-hidden');
   galleryList.classList.add('hide');
+}
+
+;
+
+function addPic() {
+  localStorage.setItem('firstImg', getAttr);
+  var fromLS = localStorage.getItem('firstImg');
+  imgContainer.setAttribute('src', fromLS);
 }
 
 ;
@@ -134,12 +145,14 @@ modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalNext.addEventListener('click', next);
 favorites.addEventListener('click', openModal);
+var getAttr;
 
 function openModal(e) {
   var target = e.target;
   console.log(target);
   choosePicture(target);
   modalSection.classList.remove('modal-hidden');
+  getAttr = target.getAttribute('src');
 }
 
 function hidd(e) {
