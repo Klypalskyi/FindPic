@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 const apiKey = '563492ad6f91700001000001efe4554ec5924beab8b1c433b156ab30';
 
@@ -11,7 +11,8 @@ const btnHidd = document.querySelector('.btn-hidden')
 btnHidd.addEventListener('click', appendGallery)
 
 function loadImages(image) {
-    const apiUrl = `https://api.pexels.com/v1/search?query=${image}&per_page=18`;
+    page = page + 1;
+    const apiUrl = `https://api.pexels.com/v1/search?query=${image}&per_page=18&page=${page}`;
     const headers = {Authorization: apiKey}
     return fetch(apiUrl, {headers})
     .then(response => {

@@ -7,6 +7,7 @@ const findQuery = document.querySelector('.form__input');
 const findBtn = document.querySelector('.form__button');
 const gallery = document.querySelector('.gallery__wrapper')
 const btnHidd = document.querySelector('.btn-hidden')
+let page = 1;
 
 findBtn.addEventListener('click', goApi)
 
@@ -24,7 +25,7 @@ function goApi (e) {
 };
 
 function fetchImages(query) {
-    const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=18`;
+    const apiUrl = `https://api.pexels.com/v1/search?query=${query}&per_page=18&page=${page}`;
     const headers = {Authorization: apiKey}
     // console.log(apiUrl);
     return fetch(apiUrl, {headers})

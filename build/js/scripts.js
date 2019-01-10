@@ -1,5 +1,6 @@
-'use strict';
+"use strict";
 
+// 'use strict'
 var apiKey = '563492ad6f91700001000001efe4554ec5924beab8b1c433b156ab30';
 var findQuery = document.querySelector('.form__input');
 var findBtn = document.querySelector('.form__button');
@@ -8,7 +9,8 @@ var btnHidd = document.querySelector('.btn-hidden');
 btnHidd.addEventListener('click', appendGallery);
 
 function loadImages(image) {
-  var apiUrl = "https://api.pexels.com/v1/search?query=".concat(image, "&per_page=18");
+  page = page + 1;
+  var apiUrl = "https://api.pexels.com/v1/search?query=".concat(image, "&per_page=18&page=").concat(page);
   var headers = {
     Authorization: apiKey
   };
@@ -52,6 +54,7 @@ var findQuery = document.querySelector('.form__input');
 var findBtn = document.querySelector('.form__button');
 var gallery = document.querySelector('.gallery__wrapper');
 var btnHidd = document.querySelector('.btn-hidden');
+var page = 1;
 findBtn.addEventListener('click', goApi);
 
 function goApi(e) {
@@ -70,7 +73,7 @@ function goApi(e) {
 ;
 
 function fetchImages(query) {
-  var apiUrl = "https://api.pexels.com/v1/search?query=".concat(query, "&per_page=18");
+  var apiUrl = "https://api.pexels.com/v1/search?query=".concat(query, "&per_page=18&page=").concat(page);
   var headers = {
     Authorization: apiKey // console.log(apiUrl);
 

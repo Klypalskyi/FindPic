@@ -14,10 +14,8 @@
 
 html {
   line-height: 1.15;
-  
   /* 1 */
   -webkit-text-size-adjust: 100%;
-  
   /* 2 */
 }
 
@@ -52,13 +50,10 @@ h1 {
 
 hr {
   box-sizing: content-box;
-  
   /* 1 */
   height: 0;
-  
   /* 1 */
   overflow: visible;
-  
   /* 2 */
 }
 
@@ -69,10 +64,8 @@ hr {
 
 pre {
   font-family: monospace, monospace;
-  
   /* 1 */
   font-size: 1em;
-  
   /* 2 */
 }
 
@@ -94,14 +87,11 @@ a {
 
 abbr[title] {
   border-bottom: none;
-  
   /* 1 */
   text-decoration: underline;
-  
   /* 2 */
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
-  
   /* 2 */
 }
 
@@ -123,10 +113,8 @@ code,
 kbd,
 samp {
   font-family: monospace, monospace;
-  
   /* 1 */
   font-size: 1em;
-  
   /* 2 */
 }
 
@@ -184,16 +172,12 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  
   /* 1 */
   font-size: 100%;
-  
   /* 1 */
   line-height: 1.15;
-  
   /* 1 */
   margin: 0;
-  
   /* 2 */
 }
 
@@ -204,7 +188,6 @@ textarea {
 
 button,
 input {
-  
   /* 1 */
   overflow: visible;
 }
@@ -216,7 +199,6 @@ input {
 
 button,
 select {
-  
   /* 1 */
   text-transform: none;
 }
@@ -272,22 +254,16 @@ fieldset {
 
 legend {
   box-sizing: border-box;
-  
   /* 1 */
   color: inherit;
-  
   /* 2 */
   display: table;
-  
   /* 1 */
   max-width: 100%;
-  
   /* 1 */
   padding: 0;
-  
   /* 3 */
   white-space: normal;
-  
   /* 1 */
 }
 
@@ -315,10 +291,8 @@ textarea {
 [type="checkbox"],
 [type="radio"] {
   box-sizing: border-box;
-  
   /* 1 */
   padding: 0;
-  
   /* 2 */
 }
 
@@ -338,10 +312,8 @@ textarea {
 
 [type="search"] {
   -webkit-appearance: textfield;
-  
   /* 1 */
   outline-offset: -2px;
-  
   /* 2 */
 }
 
@@ -360,10 +332,8 @@ textarea {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  
   /* 1 */
   font: inherit;
-  
   /* 2 */
 }
 
@@ -442,7 +412,6 @@ ul {
   font-style: normal;
   font-weight: 400;
   src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-v18-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/roboto-v18-latin_cyrillic-regular.woff") format("woff");
-  
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -453,7 +422,6 @@ ul {
   font-style: normal;
   font-weight: 700;
   src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-v18-latin_cyrillic-700.woff2") format("woff2"), url("../fonts/roboto-v18-latin_cyrillic-700.woff") format("woff");
-  
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -464,7 +432,6 @@ ul {
   font-style: normal;
   font-weight: 400;
   src: local("Comfortaa Regular"), local("Comfortaa-Regular"), url("../fonts/comfortaa-v12-latin_cyrillic-regular.woff2") format("woff2"), url("../fonts/comfortaa-v12-latin_cyrillic-regular.woff") format("woff");
-  
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -475,7 +442,6 @@ ul {
   font-style: normal;
   font-weight: 700;
   src: local("Comfortaa Bold"), local("Comfortaa-Bold"), url("../fonts/comfortaa-v12-latin_cyrillic-700.woff2") format("woff2"), url("../fonts/comfortaa-v12-latin_cyrillic-700.woff") format("woff");
-  
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
