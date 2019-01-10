@@ -4,7 +4,7 @@ const favBtn = document.querySelector('.header__nav');
 const favList = document.querySelector('.fav-hidden');
 const galleryList = document.querySelector('.gallery');
 const addFav = document.querySelector('.modal-favorite');
-const imgContainer = document.querySelector('.first');
+const imgContainer = document.querySelector('.imgs__item');
 
 favBtn.addEventListener('click', appGallery);
 addFav.addEventListener('click', addPic);
