@@ -103,11 +103,23 @@ function createImages(imgs) {
 
 var favBtn = document.querySelector('.header__nav');
 var favList = document.querySelector('.fav-hidden');
+var container = document.querySelector('.favorites-gallery__img-list');
 var galleryList = document.querySelector('.gallery');
 var addFav = document.querySelector('.modal-favorite');
-var imgContainer = document.querySelector('.first');
 favBtn.addEventListener('click', appGallery);
-addFav.addEventListener('click', addPic);
+addFav.addEventListener('click', createElementGlobal);
+
+function createElementGlobal() {
+  var libox = document.createElement('li');
+  var imgBox = document.createElement('img');
+  libox.classList.add('img-list__imgs');
+  imgBox.classList.add('imgs__item');
+  container.append(libox);
+  libox.append(imgBox);
+  localStorage.setItem('firstImg', getAttr);
+  var fromLS = localStorage.getItem('firstImg');
+  imgBox.setAttribute('src', fromLS);
+}
 
 function appGallery(event) {
   favList.classList.remove('fav-hidden');
@@ -116,13 +128,35 @@ function appGallery(event) {
 
 ;
 
-function addPic() {
-  localStorage.setItem('firstImg', getAttr);
-  var fromLS = localStorage.getItem('firstImg');
-  imgContainer.setAttribute('src', fromLS);
-}
+var LOCALSTORAGE = function (w) {
+  if (!w) return;
+  var isActive = "localStorage" in w;
 
-;
+  var get = function get(key) {
+    try {
+      var serializedState = localStorage.getItem(key);
+      return serializedState === null ? undefined : JSON.parse(serializedState);
+    } catch (err) {
+      console.error("Get state error: ", err);
+    }
+  };
+
+  var set = function set(key, value) {
+    try {
+      var serializedState = JSON.stringify(value);
+      localStorage.setItem(key, serializedState);
+    } catch (err) {
+      console.error("Set state error: ", err);
+    }
+  };
+
+  var publicAPI = {
+    isActive: isActive,
+    get: get,
+    set: set
+  };
+  return publicAPI;
+}(window);
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
