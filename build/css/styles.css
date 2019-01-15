@@ -670,8 +670,11 @@ ul {
     justify-content: center;
     min-width: 650px;
     min-height: 380px;
-    padding: 50px 80px;
     border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
   }
 
   .modal__backdrop--button {

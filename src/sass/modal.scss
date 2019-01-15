@@ -23,12 +23,15 @@
     justify-content: center;
     min-width: 650px;
     min-height: 380px;
-    padding: 50px 80px;
-    // background-color: #ffffff;
-    // box-shadow: 0 4px 4px rgba(1, 2, 2, 0.2);
+    //background-color: #ffffff;
+    //box-shadow: 0 4px 4px rgba(1, 2, 2, 0.2);
     border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
   }
-  
+ 
   // .close-btn {
   //   position: absolute;
   //   top: 0;
