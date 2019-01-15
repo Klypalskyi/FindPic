@@ -14,6 +14,8 @@ function createElementGlobal() {
     const libox = document.createElement('li');
     const imgBox = document.createElement('img');
     const btnBox = document.createElement('button');
+
+    btnBox.addEventListener('click', removeItemImg)
     
     libox.classList.add('img-list__imgs');
     imgBox.classList.add('imgs__item');
@@ -28,6 +30,12 @@ function createElementGlobal() {
     localStorage.setItem('firstImg', getAttr);
     const fromLS = localStorage.getItem('firstImg');
     imgBox.setAttribute('src', fromLS);
+
+    function removeItemImg(event){
+      const target = event.target;
+      libox.remove();
+      localStorage.removeItem('firstImg');
+    }    
 }
 
 function appGallery(event) {

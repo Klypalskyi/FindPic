@@ -113,6 +113,7 @@ function createElementGlobal() {
   var libox = document.createElement('li');
   var imgBox = document.createElement('img');
   var btnBox = document.createElement('button');
+  btnBox.addEventListener('click', removeItemImg);
   libox.classList.add('img-list__imgs');
   imgBox.classList.add('imgs__item');
   btnBox.classList.add('imgs__remove');
@@ -123,6 +124,12 @@ function createElementGlobal() {
   localStorage.setItem('firstImg', getAttr);
   var fromLS = localStorage.getItem('firstImg');
   imgBox.setAttribute('src', fromLS);
+
+  function removeItemImg(event) {
+    var target = event.target;
+    libox.remove();
+    localStorage.removeItem('firstImg');
+  }
 }
 
 function appGallery(event) {
