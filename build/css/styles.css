@@ -616,7 +616,7 @@ ul {
     margin-bottom: 1.875rem;
   }
 
-  .find__form-box {
+  .form-box__form {
     display: flex;
     justify-content: space-between;
     align-items: center;
