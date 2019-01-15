@@ -466,6 +466,10 @@ ul {
   opacity: 0;
 }
 
+.hide {
+  display: none;
+}
+
 .gallery-wrapper__gallery {
   margin: 0;
   padding: 0;
@@ -523,6 +527,10 @@ ul {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   margin: 0px 2px 17px;
+}
+
+.fav-hidden {
+  display: none;
 }
 
 .favorites-gallery__img-list {

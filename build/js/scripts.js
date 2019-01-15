@@ -99,6 +99,64 @@ function createImages(imgs) {
 
   return markup;
 } // .then(data => console.log(data))
+'use strict';
+
+var favBtn = document.querySelector('.header__nav');
+var favList = document.querySelector('.fav-hidden');
+var container = document.querySelector('.favorites-gallery__img-list');
+var galleryList = document.querySelector('.gallery');
+var addFav = document.querySelector('.modal-favorite');
+favBtn.addEventListener('click', appGallery);
+addFav.addEventListener('click', createElementGlobal);
+
+function createElementGlobal() {
+  var libox = document.createElement('li');
+  var imgBox = document.createElement('img');
+  libox.classList.add('img-list__imgs');
+  imgBox.classList.add('imgs__item');
+  container.append(libox);
+  libox.append(imgBox);
+  localStorage.setItem('firstImg', getAttr);
+  var fromLS = localStorage.getItem('firstImg');
+  imgBox.setAttribute('src', fromLS);
+}
+
+function appGallery(event) {
+  favList.classList.remove('fav-hidden');
+  galleryList.classList.add('hide');
+}
+
+;
+
+var LOCALSTORAGE = function (w) {
+  if (!w) return;
+  var isActive = "localStorage" in w;
+
+  var get = function get(key) {
+    try {
+      var serializedState = localStorage.getItem(key);
+      return serializedState === null ? undefined : JSON.parse(serializedState);
+    } catch (err) {
+      console.error("Get state error: ", err);
+    }
+  };
+
+  var set = function set(key, value) {
+    try {
+      var serializedState = JSON.stringify(value);
+      localStorage.setItem(key, serializedState);
+    } catch (err) {
+      console.error("Set state error: ", err);
+    }
+  };
+
+  var publicAPI = {
+    isActive: isActive,
+    get: get,
+    set: set
+  };
+  return publicAPI;
+}(window);
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -114,16 +172,26 @@ var modalClose = document.querySelector('.modal-close');
 var modalPrev = document.querySelector('.modal-prev');
 var modalNext = document.querySelector('.modal-next');
 var modalImg = document.querySelector('.modal-img');
+
 var modalFav = document.querySelector('.modal-favorite');
 var galleryArr;
 var index;
 var favorite = false;
+
+var favorites = document.querySelector('.favorites-gallery__img-list');
+
 console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
+
 modalFav.addEventListener('click', addToFavorite);
 modalFav.addEventListener('click', removeFavorite);
+
+modalNext.addEventListener('click', next);
+favorites.addEventListener('click', openModal);
+var getAttr;
+
 
 function openModal(e) {
   // let index;
@@ -132,6 +200,8 @@ function openModal(e) {
   choosePicture(target);
   modalNext.addEventListener('click', next);
   modalPrev.addEventListener('click', prev);
+  modalSection.classList.remove('modal-hidden');
+  getAttr = target.getAttribute('src');
 }
 
 function hidd(e) {

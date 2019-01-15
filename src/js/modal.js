@@ -3,11 +3,15 @@ const modalClose = document.querySelector('.modal-close');
 const modalPrev = document.querySelector('.modal-prev');
 const modalNext = document.querySelector('.modal-next');
 const modalImg = document.querySelector('.modal-img');
+
 const modalFav = document.querySelector('.modal-favorite')
 
 let galleryArr;
 let index;
 let favorite = false;
+
+
+const favorites = document.querySelector('.favorites-gallery__img-list'); 
 
 console.log(modalImg.src);
 
@@ -19,6 +23,10 @@ modalFav.addEventListener('click', addToFavorite);
 modalFav.addEventListener('click', removeFavorite)
 
 
+modalNext.addEventListener('click', next);
+favorites.addEventListener('click', openModal);
+let getAttr;
+
 function openModal(e) {
     // let index;
     const target = e.target;
@@ -26,6 +34,9 @@ function openModal(e) {
     choosePicture(target);
     modalNext.addEventListener('click', next);
     modalPrev.addEventListener('click', prev);
+    choosePicture(target)
+    modalSection.classList.remove('modal-hidden');
+    getAttr = target.getAttribute('src');
 }
 
 function hidd (e) {
