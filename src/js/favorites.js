@@ -13,12 +13,17 @@ addFav.addEventListener('click', createElementGlobal);
 function createElementGlobal() {
     const libox = document.createElement('li');
     const imgBox = document.createElement('img');
+    const btnBox = document.createElement('button');
     
     libox.classList.add('img-list__imgs');
     imgBox.classList.add('imgs__item');
+    btnBox.classList.add('imgs__remove');
+
+    btnBox.textContent = 'x';
 
     container.append(libox);
     libox.append(imgBox);
+    libox.append(btnBox);
 
     localStorage.setItem('firstImg', getAttr);
     const fromLS = localStorage.getItem('firstImg');

@@ -112,10 +112,14 @@ addFav.addEventListener('click', createElementGlobal);
 function createElementGlobal() {
   var libox = document.createElement('li');
   var imgBox = document.createElement('img');
+  var btnBox = document.createElement('button');
   libox.classList.add('img-list__imgs');
   imgBox.classList.add('imgs__item');
+  btnBox.classList.add('imgs__remove');
+  btnBox.textContent = 'x';
   container.append(libox);
   libox.append(imgBox);
+  libox.append(btnBox);
   localStorage.setItem('firstImg', getAttr);
   var fromLS = localStorage.getItem('firstImg');
   imgBox.setAttribute('src', fromLS);
@@ -172,26 +176,20 @@ var modalClose = document.querySelector('.modal-close');
 var modalPrev = document.querySelector('.modal-prev');
 var modalNext = document.querySelector('.modal-next');
 var modalImg = document.querySelector('.modal-img');
-
 var modalFav = document.querySelector('.modal-favorite');
 var galleryArr;
 var index;
 var favorite = false;
-
 var favorites = document.querySelector('.favorites-gallery__img-list');
-
 console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
-
 modalFav.addEventListener('click', addToFavorite);
 modalFav.addEventListener('click', removeFavorite);
-
 modalNext.addEventListener('click', next);
 favorites.addEventListener('click', openModal);
 var getAttr;
-
 
 function openModal(e) {
   // let index;
@@ -200,6 +198,7 @@ function openModal(e) {
   choosePicture(target);
   modalNext.addEventListener('click', next);
   modalPrev.addEventListener('click', prev);
+  choosePicture(target);
   modalSection.classList.remove('modal-hidden');
   getAttr = target.getAttribute('src');
 }
