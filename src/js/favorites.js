@@ -6,7 +6,6 @@ const container = document.querySelector('.favorites-gallery__img-list');
 const galleryList = document.querySelector('.gallery');
 const addFav = document.querySelector('.modal-favorite');
 
-
 favBtn.addEventListener('click', appGallery);
 addFav.addEventListener('click', createElementGlobal);
 
@@ -15,7 +14,8 @@ function createElementGlobal() {
     const imgBox = document.createElement('img');
     const btnBox = document.createElement('button');
 
-    btnBox.addEventListener('click', removeItemImg)
+    btnBox.addEventListener('click', removeItemImg);
+    imgBox.addEventListener('click', openModal);
     
     libox.classList.add('img-list__imgs');
     imgBox.classList.add('imgs__item');
