@@ -114,17 +114,24 @@ var modalClose = document.querySelector('.modal-close');
 var modalPrev = document.querySelector('.modal-prev');
 var modalNext = document.querySelector('.modal-next');
 var modalImg = document.querySelector('.modal-img');
+var modalFav = document.querySelector('.modal-favorite');
+var galleryArr;
+var index;
+var favorite = false;
 console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
-modalNext.addEventListener('click', next);
+modalFav.addEventListener('click', addToFavorite);
+modalFav.addEventListener('click', removeFavorite);
 
 function openModal(e) {
+  // let index;
   var target = e.target;
   console.log(target);
   choosePicture(target);
-  modalSection.classList.remove('modal-hidden');
+  modalNext.addEventListener('click', next);
+  modalPrev.addEventListener('click', prev);
 }
 
 function hidd(e) {
@@ -134,20 +141,42 @@ function hidd(e) {
 }
 
 function choosePicture(target) {
+  // let index
+  galleryArr = _toConsumableArray(gallery.children);
+
   if (target.classList.contains('img-list__imgs')) {
+    modalSection.classList.remove('modal-hidden');
     modalImg.src = target.firstElementChild.src;
+    index = target;
+    return galleryArr, index;
   } else if (target.classList.contains('imgs__item')) {
+    modalSection.classList.remove('modal-hidden');
     modalImg.src = target.src;
+    index = target.parentElement;
+    return galleryArr, index;
   }
 }
 
 function next() {
-  var galleryArr = _toConsumableArray(gallery.children);
-
-  console.log(galleryArr);
-  console.log(modalImg.parentElement);
-
-  for (var i = 0; i < galleryArr.length; i++) {
-    console.log(i);
-  }
+  var nextItem = index.nextElementSibling.firstElementChild;
+  index = index.nextElementSibling;
+  modalImg.src = nextItem.src;
 }
+
+function prev() {
+  var prevItem = index.previousElementSibling.firstElementChild;
+  index = index.previousElementSibling;
+  modalImg.src = prevItem.src;
+}
+
+function addToFavorite(e) {
+  var target = e.target;
+  favorite = true;
+  target.style.color = 'rgb(255, 240, 108)';
+} // function removeFavorite (e) {
+//     const target = e.target;
+//     if(favorite) {
+//         favorite = false;
+//         target.style.color = 'rgb(255, 255, 255)';
+//     }
+// }
