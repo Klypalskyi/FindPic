@@ -114,6 +114,7 @@ function createElementGlobal() {
   var imgBox = document.createElement('img');
   var btnBox = document.createElement('button');
   btnBox.addEventListener('click', removeItemImg);
+  imgBox.addEventListener('click', openModal);
   libox.classList.add('img-list__imgs');
   imgBox.classList.add('imgs__item');
   btnBox.classList.add('imgs__remove');
@@ -194,8 +195,8 @@ modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalFav.addEventListener('click', addToFavorite);
 modalFav.addEventListener('click', removeFavorite);
-modalNext.addEventListener('click', next);
-favorites.addEventListener('click', openModal);
+modalNext.addEventListener('click', next); // favorites.addEventListener('click', openModal);
+
 var getAttr;
 
 function openModal(e) {
