@@ -565,6 +565,7 @@ ul {
   right: 5px;
   font-size: 15px;
   background-color: #fff;
+  border-radius: 50%;
 }
 
 .imgs__remove:hover {
