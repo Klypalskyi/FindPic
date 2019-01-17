@@ -53,9 +53,14 @@
   height: 15px;
   top: 5px;
   right: 5px;
-  font-size: 15px;
+  padding-top: 2px;
+  font-size: 12px;
   background-color: #fff;
   border-radius: 50%;
+}
+
+.imgs__remove:after{
+  content: '\2716';
 }
 
 .imgs__remove:hover {
