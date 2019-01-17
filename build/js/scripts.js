@@ -118,7 +118,6 @@ function getFromLS() {
       var divbox = document.createElement('div');
       var removeBtn = document.createElement('span');
       var imgBox = document.createElement('img');
-      removeBtn.textContent = 'x';
       divbox.classList.add('img-list__imgs');
       removeBtn.classList.add('imgs__remove');
       imgBox.classList.add('imgs__item');
