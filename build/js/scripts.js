@@ -193,8 +193,8 @@ console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
-modalFav.addEventListener('click', addToFavorite);
-modalFav.addEventListener('click', removeFavorite);
+modalFav.addEventListener('click', addToFavorite); // modalFav.addEventListener('click', removeFavorite)
+
 modalNext.addEventListener('click', next); // favorites.addEventListener('click', openModal);
 
 var getAttr;

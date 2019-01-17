@@ -579,7 +579,7 @@ ul {
   flex-direction: column;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 360px) {
   .main__header {
     max-width: 94.6%;
     margin: auto;
@@ -694,8 +694,8 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 650px;
-    min-height: 380px;
+    min-width: 90%;
+    min-height: auto;
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -722,6 +722,12 @@ ul {
   .bold {
     font-weight: 600;
     font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal-content {
+    min-width: 50%;
   }
 }
 
