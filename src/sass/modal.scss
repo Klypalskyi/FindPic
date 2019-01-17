@@ -104,6 +104,12 @@
   font-size: 1.3rem;
 }
 
+@media (min-width: 640px) {
+  .modal-content {
+    min-width: 65%;
+  }
+}
+
 @media (min-width: 1024px) {
   .modal-content {
     min-width: 50%;

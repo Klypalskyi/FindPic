@@ -20,6 +20,8 @@ function getFromLS() {
       const removeBtn = document.createElement('span');
       const imgBox = document.createElement('img');
 
+      divbox.addEventListener('click', openModal); 
+
       divbox.classList.add('img-list__imgs');
       removeBtn.classList.add('imgs__remove');
       imgBox.classList.add('imgs__item');

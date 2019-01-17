@@ -1,5 +1,6 @@
 "use strict";
 
+// 'use strict'
 var apiKey = '563492ad6f91700001000001efe4554ec5924beab8b1c433b156ab30';
 var findQuery = document.querySelector('.form__input');
 var findBtn = document.querySelector('.form__button');
@@ -94,15 +95,19 @@ function fetchImages(query) {
 function createImages(imgs) {
   var markup = imgs.reduce(function (markup, item) {
     return markup + " <div class=\"img-list__imgs\"> <img id=".concat(item.id, " src=").concat(item.src.medium, " alt=").concat(item.photographer, " class=\"imgs__item\"> </div>");
-  }, ''); 
+  }, ''); // console.log(markup);
 
   return markup;
-} 
+} // .then(data => console.log(data))
+"use strict";
+
+// 'use strict'
 var favBtn = document.querySelector('.header__nav');
 var favList = document.querySelector('.fav-hidden');
 var container = document.querySelector('.favorites-gallery__img-list');
-var galleryList = document.querySelector('.gallery'); 
-var mk = 0; 
+var galleryList = document.querySelector('.gallery'); // const addFav = document.querySelector('.modal-favorite');
+
+var mk = 0; // localStorage.clear()
 
 favBtn.addEventListener('click', appGallery);
 document.addEventListener('DOMContentLoaded', getFromLS); // addFav.addEventListener('click', createElementGlobal);
@@ -113,6 +118,7 @@ function getFromLS() {
       var divbox = document.createElement('div');
       var removeBtn = document.createElement('span');
       var imgBox = document.createElement('img');
+      divbox.addEventListener('click', openModal);
       divbox.classList.add('img-list__imgs');
       removeBtn.classList.add('imgs__remove');
       imgBox.classList.add('imgs__item');
@@ -178,6 +184,7 @@ var LOCALSTORAGE = function (w) {
   };
   return publicAPI;
 }(window);
+"use strict";
 
 var modalSection = document.querySelector('.js-modal-backdrop');
 var modalClose = document.querySelector('.modal-close');
