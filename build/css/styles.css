@@ -482,14 +482,14 @@ ul {
   margin-bottom: 1.875rem;
 }
 
-.find__form-box {
+.form-box__form {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .form__input {
-  width: 82.42%;
+  width: 75%;
   border: 1px, solid, #adafb2;
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
@@ -521,7 +521,7 @@ ul {
 }
 
 .form__button {
-  width: 14.84%;
+  width: 20%;
   background-color: #cddc39;
   border: none;
   border-radius: 0.5rem;
@@ -721,6 +721,12 @@ ul {
 .bold {
   font-weight: 600;
   font-size: 1.3rem;
+}
+
+@media (min-width: 640px) {
+  .modal-content {
+    min-width: 65%;
+  }
 }
 
 @media (min-width: 1024px) {
