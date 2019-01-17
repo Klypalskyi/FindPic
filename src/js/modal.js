@@ -61,6 +61,7 @@ function next() {
   index = index.nextElementSibling;
   modalImg.src = nextItem.src
   modalImg.id = nextItem.id
+  if (localStorage.getItem()){}
 }
 
 function prev() {

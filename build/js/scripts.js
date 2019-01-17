@@ -1,6 +1,5 @@
 "use strict";
 
-// 'use strict'
 var apiKey = '563492ad6f91700001000001efe4554ec5924beab8b1c433b156ab30';
 var findQuery = document.querySelector('.form__input');
 var findBtn = document.querySelector('.form__button');
@@ -95,19 +94,15 @@ function fetchImages(query) {
 function createImages(imgs) {
   var markup = imgs.reduce(function (markup, item) {
     return markup + " <div class=\"img-list__imgs\"> <img id=".concat(item.id, " src=").concat(item.src.medium, " alt=").concat(item.photographer, " class=\"imgs__item\"> </div>");
-  }, ''); // console.log(markup);
+  }, ''); 
 
   return markup;
-} // .then(data => console.log(data))
-"use strict";
-
-// 'use strict'
+} 
 var favBtn = document.querySelector('.header__nav');
 var favList = document.querySelector('.fav-hidden');
 var container = document.querySelector('.favorites-gallery__img-list');
-var galleryList = document.querySelector('.gallery'); // const addFav = document.querySelector('.modal-favorite');
-
-var mk = 0; // localStorage.clear()
+var galleryList = document.querySelector('.gallery'); 
+var mk = 0; 
 
 favBtn.addEventListener('click', appGallery);
 document.addEventListener('DOMContentLoaded', getFromLS); // addFav.addEventListener('click', createElementGlobal);
@@ -116,11 +111,14 @@ function getFromLS() {
   for (var el in localStorage) {
     if (el >= 0) {
       var divbox = document.createElement('div');
+      var removeBtn = document.createElement('span');
       var imgBox = document.createElement('img');
       divbox.classList.add('img-list__imgs');
+      removeBtn.classList.add('imgs__remove');
       imgBox.classList.add('imgs__item');
       container.append(divbox);
       divbox.append(imgBox);
+      divbox.append(removeBtn);
       var fromLS = localStorage.getItem(el);
       imgBox.setAttribute('src', fromLS);
     }
@@ -130,7 +128,6 @@ function getFromLS() {
 function addFav(item) {
   var divbox = document.createElement('div');
   var imgBox = document.createElement('img');
-<<<<<<< HEAD
   divbox.classList.add('img-list__imgs');
   imgBox.classList.add('imgs__item');
   container.append(divbox);
@@ -142,26 +139,6 @@ function addFav(item) {
       var fromLS = localStorage.getItem(item.id);
       imgBox.setAttribute('src', fromLS);
     }
-=======
-  var btnBox = document.createElement('button');
-  btnBox.addEventListener('click', removeItemImg);
-  imgBox.addEventListener('click', openModal);
-  libox.classList.add('img-list__imgs');
-  imgBox.classList.add('imgs__item');
-  btnBox.classList.add('imgs__remove');
-  btnBox.textContent = 'x';
-  container.append(libox);
-  libox.append(imgBox);
-  libox.append(btnBox);
-  localStorage.setItem('firstImg', getAttr);
-  var fromLS = localStorage.getItem('firstImg');
-  imgBox.setAttribute('src', fromLS);
-
-  function removeItemImg(event) {
-    var target = event.target;
-    libox.remove();
-    localStorage.removeItem('firstImg');
->>>>>>> 0667d714322b59617f12ffbb702248ffbd8f8c37
   }
 }
 
@@ -201,7 +178,6 @@ var LOCALSTORAGE = function (w) {
   };
   return publicAPI;
 }(window);
-"use strict";
 
 var modalSection = document.querySelector('.js-modal-backdrop');
 var modalClose = document.querySelector('.modal-close');
@@ -212,23 +188,12 @@ var modalFav = document.querySelector('.modal-favorite');
 var index;
 var favorite = false;
 var favorites = document.querySelector('.favorites-gallery__img-list');
-<<<<<<< HEAD
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalFav.addEventListener('click', handleWithFavorite);
-modalNext.addEventListener('click', next);
-favorites.addEventListener('click', openModal);
-=======
-console.log(modalImg.src);
-gallery.addEventListener('click', openModal);
-modalSection.addEventListener('click', hidd);
-modalClose.addEventListener('click', hidd);
-modalFav.addEventListener('click', addToFavorite); // modalFav.addEventListener('click', removeFavorite)
-
 modalNext.addEventListener('click', next); // favorites.addEventListener('click', openModal);
 
->>>>>>> 0667d714322b59617f12ffbb702248ffbd8f8c37
 var getAttr;
 
 function openModal(e) {
@@ -267,6 +232,8 @@ function next() {
   index = index.nextElementSibling;
   modalImg.src = nextItem.src;
   modalImg.id = nextItem.id;
+
+  if (localStorage.getItem()) {}
 }
 
 function prev() {

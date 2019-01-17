@@ -15,15 +15,20 @@ document.addEventListener('DOMContentLoaded', getFromLS)
 function getFromLS() {
   for (let el in localStorage) {
     if (el >= 0) {
-      
-    const divbox = document.createElement('div');
-    const imgBox = document.createElement('img');
-    divbox.classList.add('img-list__imgs');
-    imgBox.classList.add('imgs__item');
-    container.append(divbox);
-    divbox.append(imgBox);
 
-    
+      const divbox = document.createElement('div');
+      const removeBtn = document.createElement('span');
+      const imgBox = document.createElement('img');
+
+      divbox.classList.add('img-list__imgs');
+      removeBtn.classList.add('imgs__remove');
+      imgBox.classList.add('imgs__item');
+
+      container.append(divbox);
+      divbox.append(imgBox);
+      divbox.append(removeBtn);
+
+
       let fromLS = localStorage.getItem(el);
       imgBox.setAttribute('src', fromLS);
     }
@@ -39,7 +44,7 @@ function addFav(item) {
 
   container.append(divbox);
   divbox.append(imgBox);
-  
+
   localStorage.setItem(item.id, item.src);
 
   for (let el in localStorage) {
@@ -49,6 +54,7 @@ function addFav(item) {
     }
   }
 }
+
 
 function appGallery(event) {
   favList.classList.remove('fav-hidden');
