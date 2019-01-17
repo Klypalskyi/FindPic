@@ -43,7 +43,7 @@ function appendGallery(event) {
 
 function imageMaker(img) {
   var markup = img.reduce(function (markup, item) {
-    return markup + "<div class=\"img-list__imgs\"> <img src=".concat(item.src.large, " \n    alt=").concat(item.photographer, " class=\"imgs__item\"> </div>");
+    return markup + "<div class=\"img-list__imgs\"> <img id=".concat(item.id, " src=").concat(item.src.medium, " \n    alt=").concat(item.photographer, " class=\"imgs__item\"> </div>");
   }, '');
   return markup;
 }
@@ -94,31 +94,54 @@ function fetchImages(query) {
 
 function createImages(imgs) {
   var markup = imgs.reduce(function (markup, item) {
-    return markup + " <div class=\"img-list__imgs\"> <img src=".concat(item.src.large, " alt=").concat(item.photographer, " class=\"imgs__item\"> </div>");
+    return markup + " <div class=\"img-list__imgs\"> <img id=".concat(item.id, " src=").concat(item.src.medium, " alt=").concat(item.photographer, " class=\"imgs__item\"> </div>");
   }, ''); // console.log(markup);
 
   return markup;
 } // .then(data => console.log(data))
-'use strict';
+"use strict";
 
+// 'use strict'
 var favBtn = document.querySelector('.header__nav');
 var favList = document.querySelector('.fav-hidden');
 var container = document.querySelector('.favorites-gallery__img-list');
-var galleryList = document.querySelector('.gallery');
-var addFav = document.querySelector('.modal-favorite');
-favBtn.addEventListener('click', appGallery);
-addFav.addEventListener('click', createElementGlobal);
+var galleryList = document.querySelector('.gallery'); // const addFav = document.querySelector('.modal-favorite');
 
-function createElementGlobal() {
-  var libox = document.createElement('li');
+var mk = 0; // localStorage.clear()
+
+favBtn.addEventListener('click', appGallery);
+document.addEventListener('DOMContentLoaded', getFromLS); // addFav.addEventListener('click', createElementGlobal);
+
+function getFromLS() {
+  for (var el in localStorage) {
+    if (el >= 0) {
+      var divbox = document.createElement('div');
+      var imgBox = document.createElement('img');
+      divbox.classList.add('img-list__imgs');
+      imgBox.classList.add('imgs__item');
+      container.append(divbox);
+      divbox.append(imgBox);
+      var fromLS = localStorage.getItem(el);
+      imgBox.setAttribute('src', fromLS);
+    }
+  }
+}
+
+function addFav(item) {
+  var divbox = document.createElement('div');
   var imgBox = document.createElement('img');
-  libox.classList.add('img-list__imgs');
+  divbox.classList.add('img-list__imgs');
   imgBox.classList.add('imgs__item');
-  container.append(libox);
-  libox.append(imgBox);
-  localStorage.setItem('firstImg', getAttr);
-  var fromLS = localStorage.getItem('firstImg');
-  imgBox.setAttribute('src', fromLS);
+  container.append(divbox);
+  divbox.append(imgBox);
+  localStorage.setItem(item.id, item.src);
+
+  for (var el in localStorage) {
+    if (el >= 0) {
+      var fromLS = localStorage.getItem(item.id);
+      imgBox.setAttribute('src', fromLS);
+    }
+  }
 }
 
 function appGallery(event) {
@@ -159,71 +182,51 @@ var LOCALSTORAGE = function (w) {
 }(window);
 "use strict";
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 var modalSection = document.querySelector('.js-modal-backdrop');
 var modalClose = document.querySelector('.modal-close');
 var modalPrev = document.querySelector('.modal-prev');
 var modalNext = document.querySelector('.modal-next');
 var modalImg = document.querySelector('.modal-img');
-
 var modalFav = document.querySelector('.modal-favorite');
-var galleryArr;
 var index;
 var favorite = false;
-
 var favorites = document.querySelector('.favorites-gallery__img-list');
-
-console.log(modalImg.src);
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
-
-modalFav.addEventListener('click', addToFavorite);
-modalFav.addEventListener('click', removeFavorite);
-
+modalFav.addEventListener('click', handleWithFavorite);
 modalNext.addEventListener('click', next);
 favorites.addEventListener('click', openModal);
 var getAttr;
 
-
 function openModal(e) {
-  // let index;
   var target = e.target;
-  console.log(target);
   choosePicture(target);
   modalNext.addEventListener('click', next);
   modalPrev.addEventListener('click', prev);
+  choosePicture(target);
   modalSection.classList.remove('modal-hidden');
   getAttr = target.getAttribute('src');
 }
 
 function hidd(e) {
-  // console.log(e.target);
   if (this !== e.target) return;
   modalSection.classList.add('modal-hidden');
 }
 
 function choosePicture(target) {
-  // let index
-  galleryArr = _toConsumableArray(gallery.children);
-
   if (target.classList.contains('img-list__imgs')) {
     modalSection.classList.remove('modal-hidden');
     modalImg.src = target.firstElementChild.src;
+    modalImg.id = target.firstElementChild.id;
     index = target;
-    return galleryArr, index;
+    return index;
   } else if (target.classList.contains('imgs__item')) {
     modalSection.classList.remove('modal-hidden');
     modalImg.src = target.src;
+    modalImg.id = target.id;
     index = target.parentElement;
-    return galleryArr, index;
+    return index;
   }
 }
 
@@ -231,22 +234,28 @@ function next() {
   var nextItem = index.nextElementSibling.firstElementChild;
   index = index.nextElementSibling;
   modalImg.src = nextItem.src;
+  modalImg.id = nextItem.id;
 }
 
 function prev() {
   var prevItem = index.previousElementSibling.firstElementChild;
   index = index.previousElementSibling;
   modalImg.src = prevItem.src;
+  modalImg.id = prevItem.id;
 }
 
-function addToFavorite(e) {
+function handleWithFavorite(e) {
   var target = e.target;
-  favorite = true;
-  target.style.color = 'rgb(255, 240, 108)';
-} // function removeFavorite (e) {
-//     const target = e.target;
-//     if(favorite) {
-//         favorite = false;
-//         target.style.color = 'rgb(255, 255, 255)';
-//     }
-// }
+  var item = modalImg;
+
+  if (!favorite) {
+    favorite = true;
+    target.style.color = 'rgb(255, 240, 108)';
+    addFav(item);
+  } else if (favorite) {
+    favorite = false;
+    target.style.color = 'rgb(255, 255, 255)'; // removeFav(item)
+
+    addFav(item);
+  }
+}

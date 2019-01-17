@@ -6,21 +6,19 @@ const modalImg = document.querySelector('.modal-img');
 
 const modalFav = document.querySelector('.modal-favorite')
 
-let galleryArr;
 let index;
 let favorite = false;
 
 
-const favorites = document.querySelector('.favorites-gallery__img-list'); 
 
-console.log(modalImg.src);
+const favorites = document.querySelector('.favorites-gallery__img-list');
+
 
 
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
-modalFav.addEventListener('click', addToFavorite);
-modalFav.addEventListener('click', removeFavorite)
+modalFav.addEventListener('click', handleWithFavorite);
 
 
 modalNext.addEventListener('click', next);
@@ -28,61 +26,61 @@ favorites.addEventListener('click', openModal);
 let getAttr;
 
 function openModal(e) {
-    // let index;
-    const target = e.target;
-    console.log(target);
-    choosePicture(target);
-    modalNext.addEventListener('click', next);
-    modalPrev.addEventListener('click', prev);
-    choosePicture(target)
-    modalSection.classList.remove('modal-hidden');
-    getAttr = target.getAttribute('src');
+  const target = e.target;
+  choosePicture(target);
+  modalNext.addEventListener('click', next);
+  modalPrev.addEventListener('click', prev);
+  choosePicture(target)
+  modalSection.classList.remove('modal-hidden');
+  getAttr = target.getAttribute('src');
 }
 
-function hidd (e) {
-    // console.log(e.target);
-    if (this !== e.target) return;
-    modalSection.classList.add('modal-hidden')
+function hidd(e) {
+  if (this !== e.target) return;
+  modalSection.classList.add('modal-hidden')
 }
 
 function choosePicture(target) {
-    // let index
-    galleryArr = [...gallery.children];
-    if (target.classList.contains('img-list__imgs')) {
-        modalSection.classList.remove('modal-hidden');
-        modalImg.src = target.firstElementChild.src
-        index = target;
-        return galleryArr, index
-    } else if (target.classList.contains('imgs__item')) {
-        modalSection.classList.remove('modal-hidden');
-        modalImg.src = target.src
-        index = target.parentElement;
-        return galleryArr, index
-    } 
+  if (target.classList.contains('img-list__imgs')) {
+    modalSection.classList.remove('modal-hidden');
+    modalImg.src = target.firstElementChild.src
+    modalImg.id = target.firstElementChild.id
+    index = target;
+    return index
+  } else if (target.classList.contains('imgs__item')) {
+    modalSection.classList.remove('modal-hidden');
+    modalImg.src = target.src
+    modalImg.id = target.id
+    index = target.parentElement;
+    return index
+  }
 }
 
 function next() {
-    let nextItem = index.nextElementSibling.firstElementChild;
-    index = index.nextElementSibling;
-    modalImg.src = nextItem.src
+  let nextItem = index.nextElementSibling.firstElementChild;
+  index = index.nextElementSibling;
+  modalImg.src = nextItem.src
+  modalImg.id = nextItem.id
 }
 
 function prev() {
-    let prevItem = index.previousElementSibling.firstElementChild;
-    index = index.previousElementSibling;
-    modalImg.src = prevItem.src
+  let prevItem = index.previousElementSibling.firstElementChild;
+  index = index.previousElementSibling;
+  modalImg.src = prevItem.src
+  modalImg.id = prevItem.id
 }
 
-function addToFavorite (e) {
-    const target = e.target;
+function handleWithFavorite(e) {
+  const target = e.target;
+  let item = modalImg
+  if (!favorite) {
     favorite = true;
     target.style.color = 'rgb(255, 240, 108)';
+    addFav(item)
+  } else if (favorite) {
+    favorite = false;
+    target.style.color = 'rgb(255, 255, 255)';
+    // removeFav(item)
+    addFav(item)
+  }
 }
-
-// function removeFavorite (e) {
-//     const target = e.target;
-//     if(favorite) {
-//         favorite = false;
-//         target.style.color = 'rgb(255, 255, 255)';
-//     }
-// }

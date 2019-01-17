@@ -39,7 +39,7 @@ function fetchImages(query) {
 };
 
 function createImages(imgs){
-    const markup = imgs.reduce((markup, item) => markup + ` <div class="img-list__imgs"> <img src=${item.src.large} alt=${item.photographer} class="imgs__item"> </div>`,'')
+    const markup = imgs.reduce((markup, item) => markup + ` <div class="img-list__imgs"> <img id=${item.id} src=${item.src.medium} alt=${item.photographer} class="imgs__item"> </div>`,'')
     // console.log(markup);
     return markup
 }

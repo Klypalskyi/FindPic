@@ -34,7 +34,7 @@ function appendGallery (event) {
 
 function imageMaker(img){
     const markup = img.reduce((markup, item) => markup + 
-    `<div class="img-list__imgs"> <img src=${item.src.large} 
+    `<div class="img-list__imgs"> <img id=${item.id} src=${item.src.medium} 
     alt=${item.photographer} class="imgs__item"> </div>`,'');
     return markup;
 }
