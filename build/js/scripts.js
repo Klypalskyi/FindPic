@@ -130,6 +130,7 @@ function getFromLS() {
 function addFav(item) {
   var divbox = document.createElement('div');
   var imgBox = document.createElement('img');
+<<<<<<< HEAD
   divbox.classList.add('img-list__imgs');
   imgBox.classList.add('imgs__item');
   container.append(divbox);
@@ -141,6 +142,26 @@ function addFav(item) {
       var fromLS = localStorage.getItem(item.id);
       imgBox.setAttribute('src', fromLS);
     }
+=======
+  var btnBox = document.createElement('button');
+  btnBox.addEventListener('click', removeItemImg);
+  imgBox.addEventListener('click', openModal);
+  libox.classList.add('img-list__imgs');
+  imgBox.classList.add('imgs__item');
+  btnBox.classList.add('imgs__remove');
+  btnBox.textContent = 'x';
+  container.append(libox);
+  libox.append(imgBox);
+  libox.append(btnBox);
+  localStorage.setItem('firstImg', getAttr);
+  var fromLS = localStorage.getItem('firstImg');
+  imgBox.setAttribute('src', fromLS);
+
+  function removeItemImg(event) {
+    var target = event.target;
+    libox.remove();
+    localStorage.removeItem('firstImg');
+>>>>>>> 0667d714322b59617f12ffbb702248ffbd8f8c37
   }
 }
 
@@ -191,12 +212,23 @@ var modalFav = document.querySelector('.modal-favorite');
 var index;
 var favorite = false;
 var favorites = document.querySelector('.favorites-gallery__img-list');
+<<<<<<< HEAD
 gallery.addEventListener('click', openModal);
 modalSection.addEventListener('click', hidd);
 modalClose.addEventListener('click', hidd);
 modalFav.addEventListener('click', handleWithFavorite);
 modalNext.addEventListener('click', next);
 favorites.addEventListener('click', openModal);
+=======
+console.log(modalImg.src);
+gallery.addEventListener('click', openModal);
+modalSection.addEventListener('click', hidd);
+modalClose.addEventListener('click', hidd);
+modalFav.addEventListener('click', addToFavorite); // modalFav.addEventListener('click', removeFavorite)
+
+modalNext.addEventListener('click', next); // favorites.addEventListener('click', openModal);
+
+>>>>>>> 0667d714322b59617f12ffbb702248ffbd8f8c37
 var getAttr;
 
 function openModal(e) {

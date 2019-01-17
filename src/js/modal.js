@@ -22,7 +22,7 @@ modalFav.addEventListener('click', handleWithFavorite);
 
 
 modalNext.addEventListener('click', next);
-favorites.addEventListener('click', openModal);
+// favorites.addEventListener('click', openModal);
 let getAttr;
 
 function openModal(e) {
