@@ -650,11 +650,10 @@ ul {
 .imgs__remove {
   position: absolute;
   display: none;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   top: 5px;
   right: 5px;
-  padding-top: 2px;
   font-size: 12px;
   background-color: #fff;
   border-radius: 50%;
